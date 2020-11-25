@@ -12,7 +12,7 @@ module.exports = {
     fs.writeFile("./config.json", JSON.stringify(config, null, 2), (err) => {
       if (err) {
         console.log(err);
-        return message.channel.send("There was an error writing to the file.").catch(console.error);
+        return message.channel.send("Hubo un error al escribir en el archivo.").catch(console.error);
       }
 
       return message.channel
