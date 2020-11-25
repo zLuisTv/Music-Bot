@@ -2,7 +2,7 @@
 Un Bot de discord para facilitar su uso!
 
 
-# Comandos...
+<br /> C O M A N D O S <br>
 
 ↠ !play
 
