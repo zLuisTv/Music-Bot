@@ -1,4 +1,4 @@
-const { canModifyQueue } = require("../util/ComeQueso");
+const { canModifyQueue } = require("../util/Quesito");
 const { MessageEmbed } = require('discord.js');
 
 module.exports = {
@@ -13,7 +13,7 @@ module.exports = {
     // toggle from false to true and reverse
     queue.loop = !queue.loop;
     const embed5 = new MessageEmbed()
-          .setTitle(`Loop is now ${queue.loop ? "**on**" : "**off**"}`)
+          .setTitle(`Loop esta ahora ${queue.loop ? "**on**" : "**off**"}`)
           .setColor('#F5ECEC')
      return queue.textChannel.send(embed5).catch(console.error);
   }
