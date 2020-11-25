@@ -1,4 +1,4 @@
-const { canModifyQueue } = require("../util/ComeQueso");
+const { canModifyQueue } = require("../util/Quesito");
 const { MessageEmbed } = require('discord.js');
 
 module.exports = {
@@ -6,7 +6,7 @@ module.exports = {
   description: "Cola aleatoria",
   execute(message) {
     const queue = message.client.queue.get(message.guild.id);
-    if (!queue) return message.channel.send("There is no queue.").catch(console.error);
+    if (!queue) return message.channel.send("No hay cola.").catch(console.error);
     if (!canModifyQueue(message.member)) return;
 
     let songs = queue.songs;
