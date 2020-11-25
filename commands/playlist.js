@@ -15,19 +15,19 @@ module.exports = {
 
     const serverQueue = message.client.queue.get(message.guild.id);
     if (serverQueue && channel !== message.guild.me.voice.channel)
-      return message.reply(`You must be in the same channel as ${message.client.user}`).catch(console.error);
+      return message.reply(`Debes estar en el mismo canal que ${message.client.user}`).catch(console.error);
 
     if (!args.length)
       return message
-        .reply(`Usage: ${message.client.prefix}playlist <YouTube Playlist URL | Playlist Name>`)
+        .reply(`Usa: ${message.client.prefix}playlist <YouTube Playlist URL | Playlist Name>`)
         .catch(console.error);
-    if (!channel) return message.reply("You need to join a voice channel first!").catch(console.error);
+    if (!channel) return message.reply("¡Primero debes unirte a un canal de voz!").catch(console.error);
 
     const permissions = channel.permissionsFor(message.client.user);
     if (!permissions.has("CONNECT"))
-      return message.reply("Cannot connect to voice channel, missing permissions");
+      return message.reply("No se puede conectar al canal de voz, faltan permisos");
     if (!permissions.has("SPEAK"))
-      return message.reply("I cannot speak in this voice channel, make sure I have the proper permissions!");
+      return message.reply("No puedo hablar en este canal de voz, ¡asegúrese de tener los permisos adecuados!");
 
     const search = args.join(" ");
     const pattern = /^.*(youtu.be\/|list=)([^#\&\?]*).*/gi;
@@ -54,7 +54,7 @@ module.exports = {
         videos = await playlist.getVideos(MAX_PLAYLIST_SIZE || 10, { part: "snippet" });
       } catch (error) {
         console.error(error);
-        return message.reply("Playlist not found :(").catch(console.error);
+        return message.reply("Lista de reproducción no encontrada:(").catch(console.error);
       }
     } else {
       try {
@@ -63,7 +63,7 @@ module.exports = {
         videos = await playlist.getVideos(MAX_PLAYLIST_SIZE || 10, { part: "snippet" });
       } catch (error) {
         console.error(error);
-        return message.reply("Playlist not found :(").catch(console.error);
+        return message.reply("Lista de reproducción no encontrada:(").catch(console.error);
       }
     }
 
@@ -78,7 +78,7 @@ module.exports = {
         serverQueue.songs.push(song);
         if (!PRUNING)
           message.channel
-            .send(`✅ **${song.title}** has been added to the queue by ${message.author}`)
+            .send(`✅ **${song.title}** ha sido agregado a la cola por ${message.author}`)
             .catch(console.error);
       } else {
         queueConstruct.songs.push(song);
@@ -98,7 +98,7 @@ module.exports = {
           playlistEmbed.description.substr(0, 2007) + "\nPlaylist larger than character limit...";
     }
 
-    message.channel.send(`${message.author} Started a playlist`, playlistEmbed);
+    message.channel.send(`${message.author} Comenzó una lista de reproducción`, playlistEmbed);
 
     if (!serverQueue) message.client.queue.set(message.guild.id, queueConstruct);
 
@@ -111,7 +111,7 @@ module.exports = {
         console.error(error);
         message.client.queue.delete(message.guild.id);
         await channel.leave();
-        return message.channel.send(`Could not join the channel: ${error}`).catch(console.error);
+        return message.channel.send(`No se pudo unir al canal: ${error}`).catch(console.error);
       }
     }
   }
