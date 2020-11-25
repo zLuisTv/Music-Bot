@@ -28,7 +28,8 @@
     "simple-youtube-api": "^5.2.1",
     "lyrics-finder": "^21.3.2",
     "ffmpeg-binaries": "^3.2.2",
-    "ffmpeg-static": "^4.2.7"
+    "ffmpeg-static": "^4.2.7",
+    "path": "^0.12.7"
   },
   "devDependencies": {}
 }
