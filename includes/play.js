@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 const ytdlDiscord = require("ytdl-core-discord");
 const scdl = require("soundcloud-downloader");
-const { canModifyQueue } = require("../util/ComeQueso");
+const { canModifyQueue } = require("../util/Quesito");
 const { small } = require("ffmpeg-static");
 const { Video } = require("simple-youtube-api");
 const { getVideoID } = require("ytdl-core-discord");
@@ -18,17 +18,8 @@ module.exports = {
       queue.channel.leave()
       message.client.queue.delete(message.guild.id);
       const embed = new Discord.MessageEmbed()
-      .setTitle("🚫 La transmisión ha finalizado.")
+      .setDescription("🚫 La transmisión ha finalizado.")
       .setColor("#F5ECEC")
-      console.log('╔[═════════════════════════════════════════════════════════════════]╗')
-      console.log(`[Start] ${new Date()}`);
-      console.log('')
-      console.log(`[Message Author] ${message.author.tag}`)
-      console.log('');
-      console.log(`[Guild] ${message.guild.name}`);
-      console.log(``);
-      console.log(`[Finish]`)
-      console.log('╚[═════════════════════════════════════════════════════════════════]╝')
       return queue.textChannel.send(embed).catch(console.error);
       
     }
@@ -97,28 +88,14 @@ module.exports = {
       const textEmbed = new Discord.MessageEmbed()
       .setColor("#F5ECEC")
       .setAuthor('Reproduciendo', message.author.displayAvatarURL())
-      .setDescription(`**[${song.title}](${song.url}) \n[═══════════════════════════════════════════════]**`)
+      .setDescription(`**[${song.title}](${song.url}) **`)
       .addField('**Solicitado por:**', `${message.author.tag}`)
       .addField("Duración:",`${song.duration} segundos`)
-//      .addField('Artista:',`**${}**`)
-//        .setThumbnail(client.user.displayAvatarURL())//https://cdn.discordapp.com/emojis/393564669807427584.gif
-//      .setThumbnail(`https://i.ytimg.com/vi/${}/maxresdefault.jpg`)
       .setFooter("🎶 Quesito Music")
       .setTimestamp()
-//╔[═════════════════════════════════════════════════════════════════]╗
 
-//╚[═════════════════════════════════════════════════════════════════]╝
       var playingMessage = await queue.textChannel.send(textEmbed); 
-      console.log('╔[═════════════════════════════════════════════════════════════════]╗')
-      console.log(`[Start] ${new Date()}`);
-      console.log('')
-      console.log(`[Message Author] ${message.author.tag}`)
-      console.log('');
-      console.log(`[Guild] ${message.guild.name}`);
-      console.log(``);
-      console.log(`[Music] ${song.title}`);
-      console.log(``);
-      console.log('╚[═════════════════════════════════════════════════════════════════]╝')
+
       await playingMessage.react("⏯");
       await playingMessage.react("⏭");
       await playingMessage.react("⏹");
@@ -143,7 +120,7 @@ module.exports = {
           if (!canModifyQueue(member)) return;
           queue.connection.dispatcher.end();
           const embed2 = new Discord.MessageEmbed()
-          .setTitle(`${user.username} ⏩ Sé salto la canción`)
+          .setDesription(`**${user.username}** ⏩ Sé salto la canción`)
           .setColor("#F5ECEC")
           queue.textChannel.send(embed2).catch(console.error);
           collector.stop();
@@ -156,14 +133,14 @@ module.exports = {
             queue.playing = !queue.playing;
             queue.connection.dispatcher.pause(true);
             const embed3 = new Discord.MessageEmbed()
-            .setTitle(`${user.username} ⏸ La transmisión ha sido pausada .`)
+            .setDesription(`**${user.username}** ⏸ La transmisión ha sido pausada .`)
             .setColor("#F5ECEC")
             queue.textChannel.send(embed3).catch(console.error);
           } else {
             queue.playing = !queue.playing;
             queue.connection.dispatcher.resume();
             const embed4 = new Discord.MessageEmbed()
-            .setTitle(`${user.username} ▶ reanudando transmisión...!`)
+            .setDesription(`**${user.username}** ▶ reanudando transmisión...!`)
             .setColor("#F5ECEC")
             queue.textChannel.send(embed4).catch(console.error);
           }
@@ -173,7 +150,7 @@ module.exports = {
           reaction.users.remove(user).catch(console.error);
           queue.loop = !queue.loop;
           const embed5 = new Discord.MessageEmbed()
-          .setTitle(`Loop is now ${queue.loop ? "**on**" : "**off**"}`)
+          .setDesription(`Loop is now ${queue.loop ? "**on**" : "**off**"}`)
           .setColor('#F5ECEC')
           queue.textChannel.send(embed5).catch(console.error);
           break;
@@ -183,18 +160,9 @@ module.exports = {
           if (!canModifyQueue(member)) return;
           queue.songs = [];
           const embed6 = new Discord.MessageEmbed()
-          .setTitle(`${user.username} ⏹  Detuvo la transmisión`)
+          .setDesription(`**${user.username}** ⏹  Detuvo la transmisión`)
           .setColor("#F5ECEC")
           queue.textChannel.send(embed6).catch(console.error);
-          console.log('╔[═════════════════════════════════════════════════════════════════]╗')
-          console.log(`[Start] ${new Date()}`);
-          console.log('')
-          console.log(`[Message Author] ${message.author.tag}`)
-          console.log('');
-          console.log(`[Guild] ${message.guild.name}`);
-          console.log(``);
-          console.log(`[Finish] ${song.title}`);
-          console.log('╚[═════════════════════════════════════════════════════════════════]╝')
           try {
             queue.connection.dispatcher.end();
           } catch (error) {
