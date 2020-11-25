@@ -19,6 +19,16 @@
     "moment-duration-format": "^2.3.2",
     "ms": "^2.1.2",
     "node-fetch": "^2.6.0",
+    "ytdl-core": "^3.4.2",
+    "ytdl-core-discord": "^1.2.4",
+    "youtube-api": "^3.0.1",
+    "string-progressbar": "^1.0.1",
+    "soundcloud": "^3.3.2",
+    "soundcloud-downloader": "^0.1.5",
+    "simple-youtube-api": "^5.2.1",
+    "lyrics-finder": "^21.3.2",
+    "ffmpeg-binaries": "^3.2.2",
+    "ffmpeg-static": "^4.2.7"
   },
   "devDependencies": {}
 }
