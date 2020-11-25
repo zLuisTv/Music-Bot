@@ -1,4 +1,4 @@
-const { canModifyQueue } = require("../util/ComeQueso");
+const { canModifyQueue } = require("../util/Quesito");
 const { MessageEmbed } = require('discord.js');
 
 
