@@ -6,7 +6,7 @@ module.exports = {
   description: "Muestra la cola de música y ahora se reproduce.",
   execute(message) {
     const queue = message.client.queue.get(message.guild.id);
-    if (!queue) return message.reply("There is nothing playing.").catch(console.error);
+    if (!queue) return message.reply("No hay nada reproduciendo.").catch(console.error);
 
     const description = queue.songs.map((song, index) => `${index + 1}. ${escapeMarkdown(song.title)}`);
 
