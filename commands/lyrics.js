@@ -8,7 +8,7 @@ module.exports = {
   description: "Obtener la letra de la canción que se reproduce actualmente",
   async execute(message) {
     const queue = message.client.queue.get(message.guild.id);
-    if (!queue) return message.channel.send("No hay ninguna transmisión.").catch(console.error);
+    if (!queue) return message.channel.send("No hay nada reproduciendo.").catch(console.error);
 
     let lyrics = null;
 
