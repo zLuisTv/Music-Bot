@@ -15,7 +15,7 @@ module.exports = {
     let user = message.author;
     
     const embed6 = new MessageEmbed()
-          .setTitle(`${user.username} ⏹  Detuvo la transmisión`)
+          .setDescription(`**${user.username}** ⏹  Detuvo la transmisión.`)
           .setColor("#F5ECEC")
     queue.textChannel.send(embed6).catch(console.error);
   }
