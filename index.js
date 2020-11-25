@@ -17,6 +17,15 @@ const moment = require('moment');
 require("moment-duration-format");
 const fetch = require("node-fetch")
 const fs = require('fs');
+var queue = new  Map();
+const { readdirSync } = require("fs");
+const { join } = require("path");
+client.aliases = new Collection();
+client.commands = new Collection();
+client.prefix = prefix;
+client.queue = new Map();
+client.config = config;
+const cooldowns = new Collection();
 
 client.on("ready" , () =>{
     console.log(`Iniciado como ${client.user.tag}!`);
