@@ -4,19 +4,9 @@ Un Bot de discord para facilitar su uso!
 
 ↠ !play
 
-↠ !playlist
-
-↠ !nowplaying
-
-↠ !search
-
 ↠ !queue
 
-↠ !remove
-
 ↠ !skip
-
-↠ !skipto
 
 ↠ !pause
 
@@ -24,10 +14,5 @@ Un Bot de discord para facilitar su uso!
 
 ↠ !stop
 
-↠ !lyrics
 
-↠ !loop
-
-↠ !pruning
-
-↠ !shuffle
+- - -
