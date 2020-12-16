@@ -85,16 +85,18 @@ client.on("message", async message => {
 });
 
 /*
+
       _____                 _   _                 
      |  ___|   _ _ __   ___| |_(_) ___  _ __  ___ 
      | |_ | | | | '_ \ / __| __| |/ _ \| '_ \/ __|
      |  _|| |_| | | | | (__| |_| | (_) | | | \__ \
      |_|   \__,_|_| |_|\___|\__|_|\___/|_| |_|___/
                                               
+                                              
 */
     
 
-    async function execute(message, serverQueue) {
+  async function execute(message, serverQueue) {
   let guild = message.guild;
   const args = message.content.split(" ");
 
