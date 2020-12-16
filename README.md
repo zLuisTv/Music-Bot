@@ -1,5 +1,5 @@
   # Music-Bot ( SIMPLE )
-Un Bot de discord para facilitar su uso!
+Music bot (Simple) para discord!
 ### C O M A N D O S 
 
 ↠ !play
