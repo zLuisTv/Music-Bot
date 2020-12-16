@@ -4,6 +4,8 @@ Un Bot de discord para facilitar su uso!
 
 ↠ !play
 
+↠ !nowplaying
+
 ↠ !queue
 
 ↠ !skip
