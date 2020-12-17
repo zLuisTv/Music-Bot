@@ -25,9 +25,9 @@ const queue = new Map();
 client.on("ready" , () =>{
     console.log(`Iniciado como ${client.user.tag}!`);
     console.log('')
-    console.log('╔[════════════]╗')
-    console.log('Created By: Lui#9680')
-    console.log('╚[════════════]╝')
+    console.log('╔[═════════════════════]╗')
+    console.log('Created By: ! Lui#9680')
+    console.log('╚[═════════════════════]╝')
      client.user.setPresence({
        status: "online",
       activity: {
